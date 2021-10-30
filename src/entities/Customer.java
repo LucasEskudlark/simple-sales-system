@@ -8,19 +8,8 @@ public class Customer {
     private String email;
     private String adress;
     private int phoneNumber;
-    // private List<Product> purchases = new ArrayList<>();
 
-
-    /* Constructor 1
-    public Customer(String name, String email, String adress, int phoneNumber, List<Product> purchases) {
-        this.name = name;
-        this.email = email;
-        this.adress = adress;
-        this.phoneNumber = phoneNumber;
-        this.purchases = purchases;
-    } */
-
-    // Constructor 2
+    // Constructor
     public Customer(String name, String email, String adress, int phoneNumber) {
         this.name = name;
         this.email = email;
@@ -57,6 +46,7 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    // toString method Override
     public String toString() {
         return "Name: " + name + " | " +
                 "E-mail: " + email + " | " +

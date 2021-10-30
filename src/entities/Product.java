@@ -52,11 +52,19 @@ public class Product {
         this.sellPrice = sellPrice;
     }
 
+    // toString method Override
     public String toString() {
         return "Name: " +  name + " | " +
                 "Cat.: " + category + " | " +
-                "Qtd.: " + quantity + " | " +
-                "C. Price: " + costPrice + " | " +
-                "S. Price: " + sellPrice;
+                "Qt.: " + quantity + " | " +
+                "C. Price: U$" + costPrice + " | " +
+                "S. Price: U$" + sellPrice;
+    }
+
+    // Showing products for the costumer
+    public String productCatalog() {
+        return "Product: " + name + " | " +
+                "Category: " + category + " | " +
+                "Price: U$" + sellPrice;
     }
 }
