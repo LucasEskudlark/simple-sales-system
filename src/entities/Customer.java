@@ -1,16 +1,13 @@
 package entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Customer {
     private String name;
     private String email;
     private String adress;
-    private int phoneNumber;
+    private String phoneNumber;
 
     // Constructor
-    public Customer(String name, String email, String adress, int phoneNumber) {
+    public Customer(String name, String email, String adress, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.adress = adress;
@@ -39,10 +36,10 @@ public class Customer {
         this.adress = adress;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

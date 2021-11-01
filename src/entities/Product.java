@@ -54,17 +54,17 @@ public class Product {
 
     // toString method Override
     public String toString() {
-        return "Name: " +  name + " | " +
+        return "Nome: " +  name + " | " +
                 "Cat.: " + category + " | " +
                 "Qt.: " + quantity + " | " +
-                "C. Price: U$" + costPrice + " | " +
-                "S. Price: U$" + sellPrice;
+                "Preço custo: U$" + costPrice + " | " +
+                "Preço venda: U$" + sellPrice;
     }
 
     // Showing products for the costumer
     public String productCatalog() {
-        return "Product: " + name + " | " +
-                "Category: " + category + " | " +
-                "Price: U$" + sellPrice;
+        return "Produto: " + name + " | " +
+                "Categoria: " + category + " | " +
+                "Preço: U$" + sellPrice;
     }
 }

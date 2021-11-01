@@ -58,20 +58,23 @@ public class Main {
                     // Buy products
                     if (option == 2) {
                         System.out.print("Digite o nome do produto que você deseja comprar: ");
+                        sc.nextLine();
                         String name = sc.nextLine();
+
                         int pos = 0;
 
-                        // ERRO
                         for (Product product: productList) {
-                            // If the name is not on the list, request again
-                            while (!product.getName().equals(name)) {
-                                System.out.print("O produto digitado não existe. Tente novamente: ");
-                                name = sc.nextLine();
-                            }
-
                             // Gets object position if it matches the name
                             if (product.getName().equals(name)) {
                                 pos = productList.indexOf(product);
+                            }
+
+                            else {
+                                // If the name is not on the list, request again
+                                while (!product.getName().equals(name)) {
+                                    System.out.print("O produto digitado não existe. Tente novamente: ");
+                                    name = sc.nextLine();
+                                }
                             }
                         }
 
@@ -83,7 +86,7 @@ public class Main {
                         int amount = sc.nextInt();
 
                         // Inform error and request again if amount <= 0
-                        while (amount <= 0) {
+                        while (amount < 0 || amount == 0) {
                             System.out.print("A quantidade deve ser maior ou igual a 1. Tente novamente: ");
                             amount = sc.nextInt();
                         }
@@ -192,11 +195,13 @@ public class Main {
                         }
 
                         // Setting new quantity value in stock
-                        int newAmount = productList.get(pos).getQuantity() - amount;
+                        int newAmount = (productList.get(pos).getQuantity()) - amount;
+                        System.out.println(newAmount);
                         productList.get(pos).setQuantity(newAmount);
 
                         // Adding product to productSold list
                         productSold.add(productList.get(pos));
+                        productSold.get(pos).setQuantity(amount);
 
                     }
                 } // End of customer loop
@@ -208,10 +213,14 @@ public class Main {
                 // Asking for the password to use manager functions
                 System.out.print("Digite a senha: ");
                 String password = sc.nextLine();
+
+                // ERRO
                 while (!password.equals("admin")) {
+                    System.out.println("");
                     System.out.print("Senha inválida, tente novamente: ");
                     password = sc.nextLine();
                 }
+
 
                 // Manager loop start
                 while (true) {
@@ -273,27 +282,18 @@ public class Main {
                         System.out.println("------- Cadastro de Clientes -------");
                         // Requesting name
                         System.out.print("Nome:  ");
+                        sc.nextLine();
                         String name = sc.nextLine();
 
                         // E-mail request
-                        System.out.print("E-mail: ");
-                        String email = sc.nextLine();
+                        String email = emailRequest();
 
                         // Adress request (Street, Number, City, Postal Code)
-                        System.out.println("Endereço: ");
-                        System.out.print("Rua: ");
-                        String street = sc.nextLine();
-                        System.out.print("Número: ");
-                        int number = sc.nextInt();
-                        System.out.print("Cidade: ");
-                        String city = sc.nextLine();
-                        System.out.println("CEP: ");
-                        int postalCode = sc.nextInt();
-                        String adress = street + ", " + number + ", " + city + ", " + postalCode;
+                        String adress = adressRequest();
 
                         // Phone number request
-                        System.out.println("Número de telefone: ");
-                        int phoneNumber = sc.nextInt();
+                        System.out.print("Número de telefone: ");
+                        String phoneNumber = sc.nextLine();
 
                         // Adding customer to customerList
                         customerList.add(new Customer(name, email, adress, phoneNumber));
@@ -374,6 +374,7 @@ public class Main {
         System.out.print("Número: ");
         int number = sc.nextInt();
         System.out.print("Cidade: ");
+        sc.nextLine();
         String city = sc.nextLine();
         System.out.print("CEP: ");
         String postalCode = sc.nextLine();
