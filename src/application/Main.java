@@ -210,17 +210,19 @@ public class Main {
             // Manager option
             if (path == 2) {
 
+                /* ERROR - 2nd time password is requested it goes straight to the
+                wrong password part*/
                 // Asking for the password to use manager functions
                 System.out.print("Digite a senha: ");
                 String password = sc.nextLine();
 
-                // ERRO
                 while (!password.equals("admin")) {
-                    System.out.println("");
                     System.out.print("Senha inválida, tente novamente: ");
                     password = sc.nextLine();
                 }
 
+                // Reset password
+                password = "";
 
                 // Manager loop start
                 while (true) {
